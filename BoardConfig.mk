@@ -33,6 +33,9 @@ TARGET_OTA_ASSERT_DEVICE := m7cdwg
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := m7cdwg
 
+# Kernel
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=m7cdwg user_debug=31
+
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0xfffe00
