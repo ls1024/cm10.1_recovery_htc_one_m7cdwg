@@ -35,6 +35,20 @@ TARGET_BOOTLOADER_BOARD_NAME := m7cdwg
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=m7cdwg user_debug=31
+TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/m7cdwg/kernel
+BOARD_KERNEL_BASE := 0x80600000
+BOARD_KERNEL_PAGESIZE := 2048
+
+TARGET_PREBUILT_KERNEL := device/htc/m7cdwg/kernel
+LOCAL_PATH := device/htc/m7cdwg
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
+else
+	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
@@ -74,4 +88,8 @@ BOARD_PROVIDES_LIBRIL := true
 #mmcblk0p32: 04729a00 00000200 "reserve"
 
 # inherit from the proprietary version
--include vendor/htc/m7spr/BoardConfigVendor.mk
+-include vendor/htc/m7cdwg/BoardConfigVendor.mk
+
+#twrp
+DEVICE_RESOLUTION := 1080x1920
+RECOVERY_GRAPHICS_USE_LINELENGTH := true

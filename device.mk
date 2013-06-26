@@ -29,5 +29,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-htc \
     ro.carrier=unknown
 
+#test compile param add by Andy Lau
+RECOVERY_NAME := CWM-based Recovery - AndyLau Edition
+BOARD_TOUCH_RECOVERY := true
+
 # Inherit from m7-common
 $(call inherit-product, device/htc/m7-common/m7-common.mk)
